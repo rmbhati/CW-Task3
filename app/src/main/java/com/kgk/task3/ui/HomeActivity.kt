@@ -1,6 +1,5 @@
 package com.kgk.task3.ui
 
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kgk.task3.R
@@ -14,6 +13,9 @@ class HomeActivity : BaseActivity() {
 
     override fun initView() {
         activityBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    }
+
+    override fun initData() {
         val listImage = ArrayList<String>()
         for (i in 1..50) {
             listImage.add("$baseURL$i.png")
@@ -21,10 +23,4 @@ class HomeActivity : BaseActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, 10)
         recyclerView.adapter = HomeAdapter(this, listImage)
     }
-
-    override fun initData() {
-
-    }
-
-
 }
